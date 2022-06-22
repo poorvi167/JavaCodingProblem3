@@ -10,7 +10,20 @@ public class ReverseStringsGenerator {
      * @throws IllegalArgumentException if the given string is empty.
      */
     public String reverseWords(String string) {
-        return String.valueOf(Integer.MIN_VALUE);
+        if (string.equals("") || string.equals(" ") || string.isBlank() || string.isEmpty()) {
+            throw new IllegalArgumentException();
+        } else if (string == null) {
+            throw new NullPointerException();
+        }
+        StringBuffer ans = new StringBuffer();
+        String[] words = string.split(" ");
+        for (String EachWord : words) {
+            StringBuffer word = new StringBuffer(EachWord);
+
+            ans.append(word.reverse());
+            ans.append(" ");
+        }
+        return ans.toString().trim();
     }
 
     /**
@@ -23,6 +36,15 @@ public class ReverseStringsGenerator {
      * @throws IllegalArgumentException if the given string is empty.
      */
     public String reverse(String string) {
-        return String.valueOf(Integer.MIN_VALUE);
+        if (string.equals("") || string.equals(" ") || string.isEmpty() || string.isBlank()) {
+            throw new IllegalArgumentException();
+        } else if (string == null) {
+            throw new NullPointerException();
+        }
+        StringBuffer ans = new StringBuffer();
+        for (int i = string.length() - 1; i >= 0; i--) {
+            ans.append(string.charAt(i));
+        }
+        return ans.toString();
     }
 }
